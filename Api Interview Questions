@@ -6,7 +6,7 @@ d. Data type, validations, order(if important), and completeness
 e. Response Time 
 f. Authorization checks
 g. Non-functional testing like performance and security testing
-h. Error codes in case API returns
+h. Error codes/Formatted error messages/customised error msgs  in case API returns
 
 2. Status codes
 200 - ok
@@ -16,12 +16,32 @@ h. Error codes in case API returns
 400 - Bad request
 401 - Unauthorized error (Generally when you give invalid credentials/No tokens/No credentials)
 400 - wrong body
+409 - conflict
 403 - FORBIDDEN (Valid credentials but not able to access resources since server is not able to understand or sufficient)
 500 - Server error
 
 3. HTTP API Methods(CRUD)
-get - Get the resource
-put - can be used for creating or updating the resources(generally for update)
+Get - Get the resource
+a. URI has to have path parameter like id to get the resource details (say /customer/1234)
+b. Usually req body is not required since we are getting the information 
+c. if you want use mutiple data use query params
+d. get multiple data like all customers (/customers)
+limits/Pagination
+e. get first 10 customers /customers?limit=10&offset=0
+/customers
+f. get  100 to 100 customers /customers?limit=10&offset=100
+g. we can limit the resources using limit parameter implemented by backend and depends
+
+Errors
+No id  - 404
+valid - 200
+
+Security in terms of get api call is important
+
+
+
+
+Put - can be used for creating or updating the resources(generally for update)
 1. Server might have or not support for upsert(insert + update) using put
 Here id can be sent as part of the request body
 2. Server might have support only for update using put
@@ -30,9 +50,28 @@ All the data is completely updated
 Errors of Put Request
 404 - if id not found/wrong param
 400 - wrong body
-409 - Not possible in put
-post - creating the new resource
-delete - used to delete the resource
+409 - Not possible in put, conflict resource already exists
+
+Post - creating the new resource, no path param or query param
+response code after creating is 201
+created id will be generally returned
+204 - response is empty body/no content
+Error codes -
+404 - if id not found/wrong param
+400 - wrong body
+409 - when u try to make the same request again
+idempotent means - Making multiple identical requests has the same effect as making a single request
+
+
+Patch - is used to update only the fields which are required (few fields), will be more efficient instead of sending whole body
+
+Delete - 
+a. used to delete the resource with path param /student/1
+b. no need to send any thing in body
+c. Two things can happen (soft deleted using flag isDeleted or hard delete)
+How to check deleted resource -- should be 404 Not found?
+d. Deleting multiple resources 
+e. idempotent
 
 4. Difference between put and patch
 Actual Body
@@ -53,3 +92,17 @@ Patch - send only what is needed to updated
 {
 "number": "1234"
 }
+
+5. What is idempotent
+Put and Patch are idempotent - They are supposed to change the state of the resource one and only once, Not again and again
+Post - is not idempotent
+
+6. Difference between path param and query param?
+Post params can have a path but not query param 
+
+
+7. What are paginated apis?
+
+8. What are filters
+
+8. What are offsets
