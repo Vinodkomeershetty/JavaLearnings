@@ -15,15 +15,41 @@ h. Error codes in case API returns
 404 - Page/Resource Not Found
 400 - Bad request
 401 - Unauthorized error (Generally when you give invalid credentials/No tokens/No credentials)
+400 - wrong body
 403 - FORBIDDEN (Valid credentials but not able to access resources since server is not able to understand or sufficient)
 500 - Server error
 
 3. HTTP API Methods(CRUD)
 get - Get the resource
 put - can be used for creating or updating the resources(generally for update)
+1. Server might have or not support for upsert(insert + update) using put
+Here id can be sent as part of the request body
+2. Server might have support only for update using put
+Here id is sent as part of path param and request body part of body
+All the data is completely updated
+Errors of Put Request
+404 - if id not found/wrong param
+400 - wrong body
+409 - Not possible in put
 post - creating the new resource
 delete - used to delete the resource
-patch -
 
+4. Difference between put and patch
+Actual Body
+{
+"name": "Vinod",
+"number": "4567",
+"id": "45000000"
+}
 
-4. 
+Put - send whole body to update a field for a resource/id
+{
+"name": "Vinod",
+"number": "1234",
+"id": "45000000"
+
+}
+Patch - send only what is needed to updated
+{
+"number": "1234"
+}
