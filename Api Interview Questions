@@ -1,1 +1,29 @@
+1. What are the things that you validate when an api is given
+a. Verify Json Schema validations
+b. Verify Accuracy of data
+c. HTTP status codes
+d. Data type, validations, order(if important), and completeness
+e. Response Time 
+f. Authorization checks
+g. Non-functional testing like performance and security testing
+h. Error codes in case API returns
 
+2. Status codes
+200 - ok
+201 - The resource is created, generally used for put or post call
+4xx - client side
+404 - Page/Resource Not Found
+400 - Bad request
+401 - Unauthorized error (Generally when you give invalid credentials/No tokens/No credentials)
+403 - FORBIDDEN (Valid credentials but not able to access resources since server is not able to understand or sufficient)
+500 - Server error
+
+3. HTTP API Methods(CRUD)
+get - Get the resource
+put - can be used for creating or updating the resources(generally for update)
+post - creating the new resource
+delete - used to delete the resource
+patch -
+
+
+4. 
