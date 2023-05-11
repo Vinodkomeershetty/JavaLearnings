@@ -1,1 +1,38 @@
+DDL - DDL changes the structure of the table like creating a table, deleting a table, altering a table, etc.
 
+CREATE -CREATE TABLE EMPLOYEE(Name VARCHAR2(20), Email VARCHAR2(100), DOB DATE);  
+
+DROP - It is used to delete both the structure and record stored in the table.
+DROP TABLE table_name;  
+
+ALTER -  It is used to alter the structure of the database. 
+This change could be either to modify the characteristics of an existing attribute or probably to add a new attribute.
+ALTER TABLE STU_DETAILS ADD(ADDRESS VARCHAR2(20));  
+ALTER TABLE STU_DETAILS MODIFY (NAME VARCHAR2(20));  
+
+TRUNCATE It is used to delete all the rows from the table and free the space containing the table.
+TRUNCATE TABLE EMPLOYEE;  
+
+
+DML - DML commands are used to modify the database. It is responsible for all form of changes in the database.
+The command of DML is not auto-committed that means it can't permanently save all the changes in the database. They can be rollback.
+
+INSERT
+INSERT INTO javatpoint (Author, Subject) VALUES ("Sonoo", "DBMS");  
+
+UPDATE
+UPDATE table_name SET [column_name1= value1,...column_nameN = valueN] [WHERE CONDITION]   
+
+DELETE 
+DELETE FROM javatpoint  
+WHERE Author="Sonoo";  
+
+3. Data Control Language
+Grant: It is used to give user access privileges to a database.
+Example: GRANT SELECT, UPDATE ON MY_TABLE TO SOME_USER, ANOTHER_USER;  
+
+Revoke:  It is used to take back permissions from the user.
+REVOKE SELECT, UPDATE ON MY_TABLE FROM USER1, USER2
+
+4.  Data Query Language
+sql
