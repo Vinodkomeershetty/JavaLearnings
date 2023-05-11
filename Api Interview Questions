@@ -101,8 +101,50 @@ Post - is not idempotent
 Post params can have a path but not query param 
 
 
-7. What are paginated apis?
+7. Types of Headers
+Any headers is a key value pair which will be understand by server
+Ex: Host, Useragent, referer, connection, 
 
-8. What are filters
+Request Headers
+ Host, Useragent,accept-language:en-us,accept-encoding:gzip compressed data
 
-8. What are offsets
+Response Headers
+conection:-keep-alive
+date : i have sent response
+last modified: date when last updated
+
+server:
+transfer-encoding:chunked
+etag: versioning
+
+Payload Headers
+
+Representation Headers
+content-type
+content-length
+content-encoding
+content-range
+content-loc
+chunks of data
+
+custom headers:
+Authorization headers
+
+
+
+8. Difference between URL and URI
+url  - resource for webpage or image
+uri - resource for webservice, identified resource by location,adress or  name
+
+
+9. Difference between path param and query param
+Path param - orders/1 - 1 is path param
+Query param - order?name=amazon&id=1&offset=12;
+
+10. Throttling - is a technique where flow of data being sent to the server can be digested at acceptable range
+a. use rate limit
+b. Throttling makes requests slowing ,rejecting, ignoring
+
+11. 
+
+12. 
