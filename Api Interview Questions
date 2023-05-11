@@ -145,6 +145,8 @@ Query param - order?name=amazon&id=1&offset=12;
 a. use rate limit
 b. Throttling makes requests slowing ,rejecting, ignoring
 
-11. 
+Rest Assured:
+
+
 
 12. 
